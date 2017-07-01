@@ -2,6 +2,21 @@
     "mnemonic": {
         "passwd": "xinlian",
         "lang": "english"
+    },
+    "limit": 5,
+    "derivePath": "m/0'/0",
+    "NoticeOptionDontuse": {
+        "lang": [
+            "english",
+            "frech",
+            "italian",
+            "japanese",
+            "spanish"
+        ],
+        "derivePath": {
+            "bitcoinCore": "m/0'/0'",
+            "Multibit": "m/0'/0",
+            "blockchain_info": "m/44'/0'/0'"
+        }
     }
-
 }
