@@ -1,2 +1,4 @@
 /node_modules
-/outputs/mnemonic.txt
+/outputs
+btc.json
+eth.json
