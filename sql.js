@@ -1,7 +1,8 @@
 const fs = require('fs');
+const btc = require('./btc.json');
 
 
-var getBtcKeys = Object.keys(JSON.parse(fs.readFileSync('btc.json', 'utf-8')));
+var getBtcKeys = Object.keys(btc);
 var BtcArray = [];
 var length = getBtcKeys.length;
 var sql = '';
@@ -15,7 +16,7 @@ getBtcKeys.forEach(function (ele, index, obj) {
 });
 
 
-for (let i = 0; i < length; i++) {
+for (let i = 1; i < length; i++) {
     var tmp = 'insert into addresses (user_id,address,type,balance,created_at,updated_at) values (' +
         i + ',"' + BtcArray[i] + '","' + btcType + '",' + 0 + ',' + time + ',' + time + ')' + ';\n';
     sql += tmp;
