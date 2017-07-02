@@ -1,4 +1,4 @@
 /node_modules
 /outputs
-btc.json
-eth.json
+*.json
+*.txt
