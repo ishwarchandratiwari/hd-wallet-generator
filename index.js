@@ -35,7 +35,7 @@ if (bip39.validateMnemonic(mnemonic)) {
     for (let i = 0; i < setting.limit; i++) {
         btcAddr[i] = root.derivePath(setting.derivePath + '/' + i).getAddress();
     }
-    console.info('Create ' + btcAddr.length + ' bitcoin(s)');
+    console.info('Create ' + btcAddr.length + ' bitcoin address(es)');
 } else {
     console.error('Mnemonic is wrong!please check it again!');
 }
