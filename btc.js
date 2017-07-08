@@ -1,5 +1,6 @@
 const fs = require('fs');
 const btc = require('./btc.json');
+const del = require('del')
 
 /*
 *  Electrum客户端生成地址，导出为json文件
@@ -15,11 +16,12 @@ const time = null;
 
 for (let i = 1; i < length; i++) {
     var tmp = 'insert into addresses (user_id,address,type,balance,created_at,updated_at) values (' +
-        i + ',"' + BtcArray[i] + '","' + btcType + '",' + 0 + ',' + time + ',' + time + ')' + ';\n';
+        i + ',"' + BtcArray[i-1] + '","' + btcType + '",' + 0 + ',' + time + ',' + time + ')' + ';\n';
     sql += tmp;
 }
-
-fs.writeFile('outputs/btc.sql',sql,'utf-8',(err) => {
+// 先删除以前生成的文件
+del.sync('sql/btc.sql');
+fs.writeFile('sql/btc.sql',sql,'utf-8',(err) => {
     if(err){
         console.error(err);
     }else{

@@ -1,5 +1,4 @@
 const fs = require('fs');
-const os = require('os')
 
 /*
 *  小蚁客户端生成地址，导出为txt文件
@@ -17,9 +16,9 @@ if (i.match('\r\n')) {
 var length = arrAns.length;
 var sql = '';
 
-for (let i = 0; i < length; i++) {
+for (let i = 1; i < length; i++) {
     var tmp = 'insert into addresses (user_id,address,type,balance,created_at,updated_at) values (' +
-        i + ',"' + arrAns[i] + '","' + 'ans' + '",' + 0 + ',' + null + ',' + null + ')' + ';\n';
+        i + ',"' + arrAns[i-1] + '","' + 'ans' + '",' + 0 + ',' + null + ',' + null + ')' + ';\n';
     sql += tmp;
 }
 
