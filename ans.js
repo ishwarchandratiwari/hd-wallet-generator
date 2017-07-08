@@ -16,7 +16,10 @@ if (i.match('\r\n')) {
 
 var length = arrAns.length;
 var sql = '';
-
+/*
+* 因为 mysql 中的id字段是从1开始的，所以对应的user_id要从1开始
+* 但是数组的 index 是从0开始的，所以还要减掉1
+ */
 for (let i = 1; i <= length; i++) {
     var tmp = 'insert into addresses (user_id,address,type,balance,created_at,updated_at) values (' +
         i + ',"' + arrAns[i-1] + '","' + 'ans' + '",' + 0 + ',' + null + ',' + null + ')' + ';\n';
