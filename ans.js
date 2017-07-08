@@ -9,15 +9,15 @@ const del = require('del');
 */
 let i = fs.readFileSync('address.txt', 'utf-8');
 if (i.match('\r\n')) {
-    var arrAns = i.split('\r\n');
+    var arrAns = i.split('\r\n').filter(Boolean);
 } else {
-    var arrAns = i.split('\n');
+    var arrAns = i.split('\n').filter(Boolean);
 }
 
 var length = arrAns.length;
 var sql = '';
 
-for (let i = 1; i < length; i++) {
+for (let i = 1; i <= length; i++) {
     var tmp = 'insert into addresses (user_id,address,type,balance,created_at,updated_at) values (' +
         i + ',"' + arrAns[i-1] + '","' + 'ans' + '",' + 0 + ',' + null + ',' + null + ')' + ';\n';
     sql += tmp;

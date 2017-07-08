@@ -14,7 +14,7 @@ var sql = '';
 const btcType = 'btc';
 const time = null;
 
-for (let i = 1; i < length; i++) {
+for (let i = 1; i <= length; i++) {
     var tmp = 'insert into addresses (user_id,address,type,balance,created_at,updated_at) values (' +
         i + ',"' + BtcArray[i-1] + '","' + btcType + '",' + 0 + ',' + time + ',' + time + ')' + ';\n';
     sql += tmp;

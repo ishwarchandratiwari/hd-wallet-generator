@@ -3,9 +3,9 @@ const del = require('del');
 
 let i = fs.readFileSync('ethaddr2.txt', 'utf-8');
 if (i.match('\r\n')) {
-    var arrEth = i.split('\r\n');
+    var arrEth = i.split('\r\n').filter(Boolean);
 } else {
-    var arrEth = i.split('\n');
+    var arrEth = i.split('\n').filter(Boolean);
 }
 
 var length = arrEth.length;
