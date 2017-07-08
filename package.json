@@ -12,7 +12,7 @@
   },
   "keywords": [],
   "author": "isLishude",
-  "license": "UNLICENSE",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/isLishude/wallet/issues"
   },
@@ -21,6 +21,6 @@
     "bip32-utils": "^0.10.0",
     "bip39": "^2.3.1",
     "bitcoinjs-lib": "^3.0.0",
-    "ethereumjs-util": "^5.1.2"
+    "del": "^3.0.0"
   }
 }
