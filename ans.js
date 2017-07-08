@@ -1,4 +1,5 @@
 const fs = require('fs');
+const del = require('del');
 
 /*
 *  小蚁客户端生成地址，导出为txt文件
@@ -21,8 +22,9 @@ for (let i = 1; i < length; i++) {
         i + ',"' + arrAns[i-1] + '","' + 'ans' + '",' + 0 + ',' + null + ',' + null + ')' + ';\n';
     sql += tmp;
 }
+del.sync(['sql/ans.sql']);
 
-fs.writeFile('outputs/ans.sql',sql,'utf-8',(err) => {
+fs.writeFile('sql/ans.sql',sql,'utf-8',(err) => {
     if(err){
         console.error(err);
     }else{
