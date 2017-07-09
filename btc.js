@@ -1,26 +1,28 @@
 const fs = require('fs');
-const btc = require('./btc.json');
-const del = require('del')
+const del = require('del');
 
-/*
-*  Electrum客户端生成地址，导出为json文件
-*  重命名为btc.json放入项目根目录  
-*  运行node btc.js即可
-*  生成的sql放在了outputs/btc.sql中
-*/
-var BtcArray = Object.keys(btc);
-var length = BtcArray.length;
+let i = fs.readFileSync('btcAddr.txt', 'utf-8');
+if (i.match('\r\n')) {
+    var arrBtc = i.split('\r\n').filter(Boolean);
+} else {
+    var arrBtc = i.split('\n').filter(Boolean);
+}
+
+var arr = arrBtc.map((value,index) => {
+    return value.trim();
+})
+var length = arr.length;
+console.log(length);
 var sql = '';
-const btcType = 'btc';
-const time = null;
 
-for (let i = 1; i <= length; i++) {
+for (let i = 1; i <= 20000; i++) {
     var tmp = 'insert into addresses (user_id,address,type,balance,created_at,updated_at) values (' +
-        i + ',"' + BtcArray[i-1] + '","' + btcType + '",' + 0 + ',' + time + ',' + time + ')' + ';\n';
+        i + ',"' + arr[i-1] + '","' + 'btc' + '",' + 0 + ',' + null + ',' + null + ')' + ';\n';
     sql += tmp;
 }
-// 先删除以前生成的文件
-del.sync('sql/btc.sql');
+
+del.sync(['sql/btc.sql']);
+
 fs.writeFile('sql/btc.sql',sql,'utf-8',(err) => {
     if(err){
         console.error(err);
@@ -28,4 +30,3 @@ fs.writeFile('sql/btc.sql',sql,'utf-8',(err) => {
         console.info('Writed succeed!')
     }
 })
-
