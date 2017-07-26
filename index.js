@@ -11,18 +11,18 @@ const passwd = setting.mnemonic.passwd;
 // and will write into output/mnemonic.txt
 console.info('generating 12 english words to mnemonic...' + '\n');
 let mnemonic = bip39.generateMnemonic();
-fs.writeFile('outputs/mnemonic.txt', mnemonic, function (err) {
+fs.writeFile('mnemonic.txt', mnemonic, function (err) {
     if (err) {
         console.error(err)
     } else {
-        console.info('Generated!The mnemonic was stored in output/mnemonic.txt');
+        console.info('The mnemonic was stored in mnemonic.txt');
     }
 })
 // encrypt the mnemonic
 if (bip39.validateMnemonic(mnemonic)) {
     const seedHex = bip39.mnemonicToSeedHex(mnemonic);
     const seed = bip39.mnemonicToSeed(mnemonic);
-    fs.writeFile('outputs/seed.txt', seed, function (err) {
+    fs.writeFile('seed.txt', seed, function (err) {
         if (err) {
             console.error(err)
         } else {
@@ -30,12 +30,9 @@ if (bip39.validateMnemonic(mnemonic)) {
         }
     });
     const root = bitcoin.HDNode.fromSeedBuffer(seed);
-    var btcAddr = [];
     // create Bitcoin Core Derive path address
-    for (let i = 0; i < setting.limit; i++) {
-        btcAddr[i] = root.derivePath(setting.derivePath + '/' + i).getAddress();
-    }
-    console.info('Create ' + btcAddr.length + ' bitcoin address(es)');
+    const address = root.derivePath(setting.derivePath + setting.Number).getAddress();
+    console.info('Your address is ' + address);
 } else {
-    console.error('Mnemonic is wrong!please check it again!');
+    console.error('Mnemonic is wrong!please contact lishude@aliyun.com');
 }

@@ -4,7 +4,7 @@
         "lang": "english",
         "default": null
     },
-    "limit": 5,
+    "Number": 5,
     "derivePath": "m/0'/0/",
     "ethereum": {
         "password": "xinlian",
