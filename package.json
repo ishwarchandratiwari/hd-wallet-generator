@@ -1,22 +1,22 @@
 {
-  "name": "bip39-tool",
-  "version": "1.0.0",
-  "description": "A tool for generating and converting BIP39 mnemonic phrases to addresses and private keys.",
+  "name": "hdw-tool",
+  "version": "0.1.1",
+  "description": "HD wallet's addess generator.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/isLishude/wallet.git"
+    "url": "git+https://github.com/isLishude/hdw.git"
   },
   "keywords": [],
   "author": "isLishude",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/isLishude/wallet/issues"
+    "url": "https://github.com/isLishude/hdw/issues"
   },
-  "homepage": "https://github.com/isLishude/wallet#readme",
+  "homepage": "https://github.com/isLishude/hdw#readme",
   "dependencies": {
     "bip32-utils": "^0.10.0",
     "bip39": "^2.3.1",
