@@ -5,27 +5,5 @@
         "default": null
     },
     "Number": 5,
-    "derivePath": "m/0'/0/",
-    "ethereum": {
-        "password": "xinlian",
-        "salt": "xinlian"
-    },
-    "NoticeOptionDontuse": {
-        "lang": [
-            "english",
-            "frech",
-            "italian",
-            "japanese",
-            "spanish"
-        ],
-        "derivePath": {
-            "bitcoinCore": "m/0'/0'",
-            "Multibit": "m/0'/0",
-            "blockchain_info": "m/44'/0'/0'",
-            "ethereum":{
-                "warning": "Only used in Ethereum",
-                "value": "m/0'/0'/0'"
-            }
-        }
-    }
+    "derivePath": "m/44'/0'/0'/0/"
 }
